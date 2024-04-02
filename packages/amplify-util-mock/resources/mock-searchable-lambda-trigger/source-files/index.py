@@ -174,9 +174,9 @@ def _lambda_handler(event, context):
 
         if image_name not in ddb:
             logger.warning(
-                'Cannot process stream if it does not contain ' + image_name)
+                "Cannot process stream if it does not contain %s", image_name)
             continue
-        logger.debug(image_name + ': %s', ddb[image_name])
+        logger.debug("%s: %s", image_name, ddb[image_name])
         # Deserialize DynamoDB type to Python types
         doc_fields = ddb_deserializer.deserialize({'M': ddb[image_name]})
         
