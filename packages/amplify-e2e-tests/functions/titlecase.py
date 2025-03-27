@@ -2,8 +2,8 @@ from titlecase import titlecase
 import json
 
 def handler(event, context):
-  f = open('/opt/data.txt', 'r')
-  optContent = f.read()
+  with open('/opt/data.txt', 'r') as f:
+    optContent = f.read()
 
   return {
     'statusCode': 200,
